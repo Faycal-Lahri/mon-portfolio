@@ -32,7 +32,11 @@
   ],
   "env": {
     "APP_ENV": "production",
-    "APP_DEBUG": "false",
-    "DB_CONNECTION": "pgsql"
+    "APP_DEBUG": "true",
+    "DB_CONNECTION": "pgsql",
+    "VIEW_COMPILED_PATH": "/tmp/storage/framework/views",
+    "SESSION_DRIVER": "cookie",
+    "LOG_CHANNEL": "stderr",
+    "CACHE_DRIVER": "array"
   }
 }
