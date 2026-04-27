@@ -17,6 +17,23 @@ $app = new Illuminate\Foundation\Application(
 
 /*
 |--------------------------------------------------------------------------
+| Vercel Read-Only Filesystem Fix
+|--------------------------------------------------------------------------
+*/
+if (isset($_SERVER['VERCEL_URL']) || env('APP_ENV') === 'production') {
+    $app->useStoragePath('/tmp/storage');
+    $app->bind('path.public', function() {
+        return base_path('public');
+    });
+    
+    // Force bootstrap cache to /tmp as well
+    $app->singleton('path.bootstrap', function ($app) {
+        return '/tmp/storage/bootstrap';
+    });
+}
+
+/*
+|--------------------------------------------------------------------------
 | Bind Important Interfaces
 |--------------------------------------------------------------------------
 |
