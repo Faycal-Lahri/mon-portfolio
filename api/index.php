@@ -8,9 +8,9 @@ $storagePaths = [
     '/tmp/storage/bootstrap/cache',
 ];
 
-foreach ($storagePaths as $path) {
-    if (!is_dir($path)) {
-        mkdir($path, 0755, true);
+foreach ($storagePaths as $dir) {
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
     }
 }
 
