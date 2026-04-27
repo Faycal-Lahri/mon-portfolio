@@ -32,7 +32,7 @@
   ],
   "env": {
     "APP_ENV": "production",
-    "APP_DEBUG": "true",
+    "APP_DEBUG": "false",
     "DB_CONNECTION": "pgsql",
     "VIEW_COMPILED_PATH": "/tmp/storage/framework/views",
     "SESSION_DRIVER": "cookie",
@@ -41,6 +41,7 @@
     "APP_SERVICES_CACHE": "/tmp/storage/bootstrap/cache/services.php",
     "APP_PACKAGES_CACHE": "/tmp/storage/bootstrap/cache/packages.php",
     "APP_CONFIG_CACHE": "/tmp/storage/bootstrap/cache/config.php",
-    "APP_ROUTES_CACHE": "/tmp/storage/bootstrap/cache/routes.php"
+    "APP_ROUTES_CACHE": "/tmp/storage/bootstrap/cache/routes.php",
+    "TRUSTED_PROXIES": "*"
   }
 }
