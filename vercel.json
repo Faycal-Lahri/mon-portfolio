@@ -42,6 +42,7 @@
     "APP_PACKAGES_CACHE": "/tmp/storage/bootstrap/cache/packages.php",
     "APP_CONFIG_CACHE": "/tmp/storage/bootstrap/cache/config.php",
     "APP_ROUTES_CACHE": "/tmp/storage/bootstrap/cache/routes.php",
-    "TRUSTED_PROXIES": "*"
+    "TRUSTED_PROXIES": "*",
+    "ASSET_URL": "https://mon-portfolio-ten-murex.vercel.app"
   }
 }
