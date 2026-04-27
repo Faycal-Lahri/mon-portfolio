@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "framework": null,
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.7.5"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(css|js|images|storage)/(.*)",
+      "dest": "/public/$1/$2"
+    },
+    {
+      "src": "/build/(.*)",
+      "dest": "/public/build/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/public/favicon.ico"
+    },
+    {
+      "src": "/robots.txt",
+      "dest": "/public/robots.txt"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "api/index.php"
+    }
+  ],
+  "env": {
+    "APP_ENV": "production",
+    "APP_DEBUG": "false",
+    "APP_URL": "https://mon-portfolio.vercel.app",
+    "APP_KEY": "base64:SoVgomGGDwQRjeVbD3NWnUAmOcuAddHrlxiHcrjTme0=",
+    "DB_CONNECTION": "pgsql"
+  }
+}
