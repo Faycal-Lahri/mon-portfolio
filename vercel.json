@@ -5,6 +5,8 @@
       "runtime": "vercel-php@0.7.1"
     }
   },
+  "installCommand": "composer install --no-dev --optimize-autoloader && npm install",
+  "buildCommand": "php artisan package:discover --ansi && php artisan config:cache && php artisan route:cache && npm run build",
   "routes": [
     {
       "src": "/build/(.*)",
@@ -21,7 +23,10 @@
   ],
   "env": {
     "APP_ENV": "production",
-    "APP_DEBUG": "true",
+    "APP_DEBUG": "false",
+    "LOG_CHANNEL": "stderr",
+    "SESSION_DRIVER": "cookie",
+    "CACHE_DRIVER": "array",
     "TRUSTED_PROXIES": "*"
   }
 }

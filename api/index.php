@@ -1,10 +1,11 @@
 <?php
 
-// Create required temporary directories for Laravel on Vercel
+// Vercel doesn't allow writing to the filesystem except /tmp
+// We create the necessary storage directories in /tmp at runtime
 $storagePaths = [
     '/tmp/storage/framework/views',
-    '/tmp/storage/framework/sessions',
     '/tmp/storage/framework/cache',
+    '/tmp/storage/framework/sessions',
     '/tmp/storage/bootstrap/cache',
 ];
 
