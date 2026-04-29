@@ -20,14 +20,15 @@ $app = new Illuminate\Foundation\Application(
 | Vercel Read-Only Filesystem Fix
 |--------------------------------------------------------------------------
 */
-if (isset($_SERVER['VERCEL_URL']) || env('APP_ENV') === 'production') {
+// Vercel serverless: filesystem is read-only except /tmp
+// VERCEL=1 is automatically injected by Vercel at runtime
+if (getenv('VERCEL') || isset($_ENV['VERCEL'])) {
     $app->useStoragePath('/tmp/storage');
-    $app->bind('path.public', function() {
+    $app->bind('path.public', function () {
         return base_path('public');
     });
-    
-    // Force bootstrap cache to /tmp as well
-    $app->singleton('path.bootstrap', function ($app) {
+    // Force bootstrap/cache to /tmp as well
+    $app->singleton('path.bootstrap', function () {
         return '/tmp/storage/bootstrap';
     });
 }

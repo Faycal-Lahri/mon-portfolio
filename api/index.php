@@ -4,9 +4,12 @@
 // We create the necessary storage directories in /tmp at runtime
 $storagePaths = [
     '/tmp/storage/framework/views',
-    '/tmp/storage/framework/cache',
+    '/tmp/storage/framework/cache/data',
     '/tmp/storage/framework/sessions',
+    '/tmp/storage/framework/testing',
+    '/tmp/storage/logs',
     '/tmp/storage/bootstrap/cache',
+    '/tmp/storage/app/public',
 ];
 
 foreach ($storagePaths as $dir) {

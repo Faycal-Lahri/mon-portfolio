@@ -9,15 +9,19 @@
   "routes": [
     {
       "src": "/build/(.*)",
-      "dest": "public/build/$1"
+      "dest": "/public/build/$1"
     },
     {
-      "src": "/(assets|css|js|images|favicon.ico|robots.txt)(.*)",
-      "dest": "public/$1$2"
+      "src": "/storage/(.*)",
+      "dest": "/public/storage/$1"
+    },
+    {
+      "src": "/(favicon\\.ico|robots\\.txt|logo\\.svg|.*\\.(png|jpg|jpeg|gif|svg|ico|webp|css|js|woff|woff2|ttf|eot))",
+      "dest": "/public/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "api/index.php"
+      "dest": "/api/index.php"
     }
   ],
   "env": {
@@ -26,6 +30,9 @@
     "LOG_CHANNEL": "stderr",
     "SESSION_DRIVER": "cookie",
     "CACHE_DRIVER": "array",
-    "TRUSTED_PROXIES": "*"
+    "FILESYSTEM_DISK": "local",
+    "QUEUE_CONNECTION": "sync",
+    "TRUSTED_PROXIES": "*",
+    "VERCEL": "1"
   }
 }
