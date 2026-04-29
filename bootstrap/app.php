@@ -20,17 +20,11 @@ $app = new Illuminate\Foundation\Application(
 | Vercel Read-Only Filesystem Fix
 |--------------------------------------------------------------------------
 */
-// Vercel serverless: filesystem is read-only except /tmp
-// VERCEL=1 is automatically injected by Vercel at runtime
+// Vercel serverless: only /tmp is writable.
+// We redirect 'storage' to /tmp but keep bootstrap/cache in the deployed
+// repo path — it only needs to be READABLE (packages.php, services.php).
 if (getenv('VERCEL') || isset($_ENV['VERCEL'])) {
     $app->useStoragePath('/tmp/storage');
-    $app->bind('path.public', function () {
-        return base_path('public');
-    });
-    // Force bootstrap/cache to /tmp as well
-    $app->singleton('path.bootstrap', function () {
-        return '/tmp/storage/bootstrap';
-    });
 }
 
 /*

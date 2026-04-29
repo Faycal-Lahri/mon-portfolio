@@ -1,14 +1,13 @@
 <?php
 
 // Vercel doesn't allow writing to the filesystem except /tmp
-// We create the necessary storage directories in /tmp at runtime
+// Only 'storage' is redirected to /tmp — bootstrap/cache stays in repo (read-only is fine)
 $storagePaths = [
     '/tmp/storage/framework/views',
     '/tmp/storage/framework/cache/data',
     '/tmp/storage/framework/sessions',
     '/tmp/storage/framework/testing',
     '/tmp/storage/logs',
-    '/tmp/storage/bootstrap/cache',
     '/tmp/storage/app/public',
 ];
 
